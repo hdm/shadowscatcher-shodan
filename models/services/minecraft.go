@@ -8,9 +8,10 @@ type Minecraft struct {
 	ForgeData MinecraftForgeInfo     `json:"forgeData"`
 	ModInfo   MinecraftModInfo       `json:"modinfo,omitempty"`
 	// Description is a string or a MinecraftDescription
-	Description json.RawMessage `json:"description"`
-	Favicon     string          `json:"favicon,omitempty"`
-	Whitelisted bool            `json:"whitelisted,omitempty"`
+	Description       json.RawMessage `json:"description"`
+	Favicon           string          `json:"favicon,omitempty"`
+	Whitelisted       bool            `json:"whitelisted,omitempty"`
+	EnforceSecureChat bool            `json:"enforcesSecureChat,omitempty"`
 }
 
 type MinecraftServerVersion struct {
@@ -19,8 +20,9 @@ type MinecraftServerVersion struct {
 }
 
 type MinecraftPlayersInfo struct {
-	Max    int `json:"max"`
-	Online int `json:"online"`
+	Max    int                 `json:"max"`
+	Online int                 `json:"online"`
+	Sample []map[string]string `json:"sample,omitempty"`
 }
 
 type MinecraftForgeInfo struct {

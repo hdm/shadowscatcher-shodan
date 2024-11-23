@@ -1,11 +1,13 @@
 package services
 
+import "encoding/json"
+
 type Etcd struct {
 	// List of connected clients
 	ClientUrls []string `json:"clientURLs"`
 
 	// Unique ID of the node
-	ID string `json:"id"`
+	ID json.Number `json:"id"`
 
 	// General information about the leader of the cluster
 	LeaderInfo EtcdLeaderInfo `json:"leaderInfo"`
@@ -32,6 +34,10 @@ type Etcd struct {
 	// State of the node that Shodan connected to
 	State   string `json:"state"`
 	Version string `json:"version"`
+
+	API string `json:"api,omitempty"`
+
+	DbSize int `json:"dbSize,omitempty"`
 }
 
 type EtcdLeaderInfo struct {

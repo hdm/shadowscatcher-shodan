@@ -33,6 +33,37 @@ type SSL struct {
 	// List of supported SSL versions. If the value starts with a “-“ then the service does NOT support that version
 	// (ex. “-SSLv2” means the service doesn’t support SSLv2).
 	Versions []string `json:"versions"`
+
+	ChainSha256     []string `json:"chain_sha256"`
+	Jarm            string   `json:"jarm"`
+	JA3S            string   `json:"ja3s"`
+	HandshakeStates []string `json:"handshake_states"`
+	Trust           SslTrust `json:"trust"`
+	OCSP            SslOCSP  `json:"ocsp"`
+}
+
+type SslOCSP struct {
+	Version            string           `json:"version"`
+	ResponseStatus     string           `json:"response_status"`
+	ResponderID        string           `json:"responder_id"`
+	CertStatus         string           `json:"cert_status"`
+	ProducedAt         string           `json:"produced_at"`
+	SignatureAlgorithm string           `json:"signature_algorithm"`
+	NextUpdate         string           `json:"next_update"`
+	ThisUpdate         string           `json:"this_update"`
+	CertificateID      SslCertificateID `json:"certificate_id"`
+}
+
+type SslCertificateID struct {
+	HashAlgorithm  string `json:"hash_algorithm"`
+	IssuerNameHash string `json:"issuer_name_hash"`
+	IssuerNameKey  string `json:"issuer_name_key"`
+	SerialNumber   string `json:"serial_number"`
+}
+
+type SslTrust struct {
+	Revoked any             `json:"revoked"` // TODO: Can be "false" or a map[string]bool
+	Browser map[string]bool `json:"browser"`
 }
 
 type SslAcceptableCA struct {
@@ -49,23 +80,28 @@ type SslCert struct {
 	Issued      string         `json:"issued"`
 	Issuer      SslIssuer      `json:"issuer"`
 	Pubkey      Pubkey         `json:"pubkey"`
-	Serial      json.Number    `json:"serial,Number"`
+	Serial      json.Number    `json:"serial"`
 	SigAlg      string         `json:"sig_alg"`
 	Subject     SslSubject     `json:"subject"`
 	Version     int            `json:"version"`
 }
 
 type SslCertComponents struct {
-	C            string `json:"C,omitempty"`
-	CN           string `json:"CN,omitempty"`
-	DC           string `json:"DC,omitempty"`
-	L            string `json:"L,omitempty"`
-	O            string `json:"O,omitempty"`
-	OU           string `json:"OU,omitempty"`
-	SN           string `json:"SN,omitempty"`
-	ST           string `json:"ST,omitempty"`
-	EmailAddress string `json:"emailAddress,omitempty"`
-	SerialNumber string `json:"serialNumber,omitempty"`
+	C                string `json:"C,omitempty"`
+	CN               string `json:"CN,omitempty"`
+	DC               string `json:"DC,omitempty"`
+	L                string `json:"L,omitempty"`
+	O                string `json:"O,omitempty"`
+	OU               string `json:"OU,omitempty"`
+	SN               string `json:"SN,omitempty"`
+	ST               string `json:"ST,omitempty"`
+	EmailAddress     string `json:"emailAddress,omitempty"`
+	SerialNumber     string `json:"serialNumber,omitempty"`
+	UnstructuredName string `json:"unstructuredName,omitempty"`
+	BusinessCategory string `json:"businessCategory,omitempty"`
+	DNQualifier      string `json:"dnQualifier,omitempty"`
+	UNDEF            string `json:"UNDEF,omitempty"`
+	Name             string `json:"name,omitempty"`
 }
 
 type SslCipher struct {
@@ -114,10 +150,10 @@ type SslIssuer struct {
 	UID                 string `json:"UID,omitempty"`
 	DNQualifier         string `json:"dnQualifier,omitempty"`
 	SubjectAltName      string `json:"subjectAltName,omitempty"`
-	UnstructuredName    string `json:"unstructuredName,omitempty,omitempty"`
-	UnstructuredAddress string `json:"unstructuredAddress,omitempty,omitempty"`
-	PostalCode          string `json:"postalCode,omitempty,omitempty"`
-	Street              string `json:"street,omitempty,omitempty"`
+	UnstructuredName    string `json:"unstructuredName,omitempty"`
+	UnstructuredAddress string `json:"unstructuredAddress,omitempty"`
+	PostalCode          string `json:"postalCode,omitempty"`
+	Street              string `json:"street,omitempty"`
 	Undef               string `json:"UNDEF,omitempty"`
 }
 

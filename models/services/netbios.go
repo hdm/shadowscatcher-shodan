@@ -14,7 +14,7 @@ type Netbios struct {
 	Raw []string `json:"raw"`
 
 	// Name of the server running NetBIOS
-	Servername string `json:"servername"`
+	ServerName string `json:"server_name"`
 
 	// Name of the user running the service
 	Username *string `json:"username"`

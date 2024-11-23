@@ -32,6 +32,8 @@ type Redis struct {
 
 	// Miscellaneous statistics and usage information
 	Stats map[string]interface{} `json:"stats,omitempty"`
+
+	AuthenticationRequired bool `json:"authentication_required,omitempty"`
 }
 
 type RedisCpuData struct {

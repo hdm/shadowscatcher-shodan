@@ -1,5 +1,7 @@
 package services
 
+import "time"
+
 type Mongo struct {
 	// Whether or not the database has any authentication enabled. Note that the server may only have partial
 	// authentication and allow certain commands to work without credentials
@@ -23,34 +25,42 @@ type MongoListDatabases struct {
 }
 
 type MongoBuildInfo struct {
-	Allocator         string                `json:"allocator,omitempty"`
-	Bits              int                   `json:"bits"`
-	BuildEnvironment  MongoBuildEnvironment `json:"buildEnvironment,omitempty"`
-	CompilerFlags     string                `json:"compilerFlags,omitempty"`
-	CompilerName      string                `json:"compiler name,omitempty"`
-	CompilerVersion   string                `json:"compiler version,omitempty"`
-	Debug             bool                  `json:"debug,omitempty"`
-	GitVersion        string                `json:"gitVersion"`
-	JavascriptEngine  string                `json:"javascriptEngine,omitempty"`
-	LoaderFlags       string                `json:"loaderFlags,omitempty"`
-	MaxBsonObjectSize int                   `json:"maxBsonObjectSize,omitempty"`
-	MemorySanitize    bool                  `json:"memory_sanitize,omitempty"`
-	Modules           []string              `json:"modules,omitempty"`
-	Ok                float64               `json:"ok"`
-	OpenSslversion    string                `json:"OpenSSLVersion,omitempty"`
-	Openssl           MongoOpenSSl          `json:"openssl,omitempty"`
-	PcreJit           bool                  `json:"pcre-jit,omitempty"`
-	PsmdbVersion      string                `json:"psmdbVersion,omitempty"`
-	SonarVersion      string                `json:"sonarVersion,omitempty"`
-	Sonardb           bool                  `json:"sonardb,omitempty"`
-	StorageEngines    []string              `json:"storageEngines,omitempty"`
-	SysInfo           string                `json:"sysInfo"`
-	TargetMinOs       string                `json:"targetMinOS,omitempty"`
-	Timestamp         string                `json:"timestamp,omitempty"`
-	TokukvVersion     string                `json:"tokukvVersion,omitempty"`
-	TokumxVersion     string                `json:"tokumxVersion,omitempty"`
-	Version           string                `json:"version"`
-	VersionArray      []int                 `json:"versionArray,omitempty"`
+	Allocator        string                `json:"allocator,omitempty"`
+	Bits             int                   `json:"bits"`
+	BuildEnvironment MongoBuildEnvironment `json:"buildEnvironment,omitempty"`
+	CompilerFlags    string                `json:"compilerFlags,omitempty"`
+	CompilerName     string                `json:"compiler name,omitempty"`
+	CompilerVersion  string                `json:"compiler version,omitempty"`
+	ClusterTime      struct {
+		ClusterTime time.Time `json:"clusterTime,omitempty"`
+		Signature   struct {
+			KeyID int64  `json:"keyId,omitempty"`
+			Hash  string `json:"hash,omitempty"`
+		} `json:"signature,omitempty"`
+	} `json:"$clusterTime,omitempty"`
+	CPPDefines        string       `json:"cppdefines,omitempty"`
+	Debug             bool         `json:"debug,omitempty"`
+	GitVersion        string       `json:"gitVersion"`
+	JavascriptEngine  string       `json:"javascriptEngine,omitempty"`
+	LoaderFlags       string       `json:"loaderFlags,omitempty"`
+	MaxBsonObjectSize int          `json:"maxBsonObjectSize,omitempty"`
+	MemorySanitize    bool         `json:"memory_sanitize,omitempty"`
+	Modules           []string     `json:"modules,omitempty"`
+	Ok                float64      `json:"ok"`
+	OpenSslversion    string       `json:"OpenSSLVersion,omitempty"`
+	Openssl           MongoOpenSSl `json:"openssl,omitempty"`
+	PcreJit           bool         `json:"pcre-jit,omitempty"`
+	PsmdbVersion      string       `json:"psmdbVersion,omitempty"`
+	SonarVersion      string       `json:"sonarVersion,omitempty"`
+	Sonardb           bool         `json:"sonardb,omitempty"`
+	StorageEngines    []string     `json:"storageEngines,omitempty"`
+	SysInfo           string       `json:"sysInfo"`
+	TargetMinOs       string       `json:"targetMinOS,omitempty"`
+	Timestamp         string       `json:"timestamp,omitempty"`
+	TokukvVersion     string       `json:"tokukvVersion,omitempty"`
+	TokumxVersion     string       `json:"tokumxVersion,omitempty"`
+	Version           string       `json:"version"`
+	VersionArray      []int        `json:"versionArray,omitempty"`
 }
 
 type MongoBuildEnvironment struct {

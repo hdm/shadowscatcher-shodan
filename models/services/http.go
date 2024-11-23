@@ -46,10 +46,29 @@ type HTTP struct {
 	// Title of the website
 	Title *string `json:"title"`
 	WAF   string  `json:"waf,omitempty"`
+
+	// HTTP status
+	Status int `json:"status"`
+
+	// Hash of title
+	TitleHash int `json:"title_hash"`
+
+	// Hash of domain
+	DomHash int `json:"dom_hash"`
+
+	// Hash of headers
+	HeadersHash int `json:"headers_hash"`
+
+	// Overall hash
+	Hash int `json:"hash"`
+
+	// Hash of server header
+	ServerHash int `json:"server_hash"`
 }
 
 type HttpComponent struct {
 	Categories []string `json:"categories"`
+	Versions   []string `json:"versions,omitempty"`
 }
 
 type HttpRedirect struct {
@@ -68,4 +87,24 @@ type HttpFavicon struct {
 
 	// URL of the favicon
 	Location string `json:"location"`
+
+	// Mime type
+	Mime string `json:"mime"`
+}
+
+type HttpScreenshot struct {
+	// Base64-encoded screenshot image
+	Data string `json:"data"`
+
+	// Numeric hash of the data property
+	Hash int `json:"hash"`
+
+	// URL of the screenshot
+	Location string `json:"location"`
+
+	// Mime type
+	Mime string `json:"mime"`
+
+	// Text
+	Text string `json:"text"`
 }

@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+
 	"github.com/shadowscatcher/shodan/models/services"
 )
 
@@ -12,6 +13,9 @@ type Service struct {
 
 	// Contains the banner information for the service
 	Data string `json:"data"`
+
+	// Information about the cloud provider for this IP
+	Cloud Cloud `json:"cloud,omitempty"`
 
 	// The IP address of the host as an integer
 	IP *int `json:"ip,omitempty"`
@@ -79,6 +83,45 @@ type Service struct {
 	// vulnerabilities stored in vulns are inferred from the banner and haven’t been verified.
 	// Availability: Banners where the software/version has been identified and there exist known CVEs for it
 	Vulns map[string]Vulnerability `json:"vulns,omitempty"`
+
+	// Common platform enumeration v2.3
+	CPE23 []string `json:"cpe23"`
+
+	// MAC address
+	MAC map[string]MAC `json:"mac"`
+
+	// Various tags
+	Tags []string `json:"tags"`
+
+	// Hostnames
+	Hostnames []string `json:"hostnames"`
+
+	// Operating system
+	OS string `json:"os"`
+
+	// Organization
+	Organization string `json:"org"`
+
+	// ISP
+	ISP string `json:"isp"`
+
+	// ASN
+	ASN string `json:"asn"`
+
+	// HTML
+	HTML string `json:"html"`
+
+	// Banner
+	Banner string `json:"banner"`
+
+	// Platform
+	Platform string `json:"platform"`
+
+	// Device
+	Device string `json:"device"`
+
+	// Screenshot for the website
+	Screenshot *services.HttpScreenshot `json:"screenshot,omitempty"`
 
 	// Availability: Services that require SSL (ex. HTTPS) or support upgrading a connection to SSL/TLS
 	// (ex. POP3 with STARTTLS)
@@ -170,6 +213,57 @@ type Service struct {
 
 	// Availability: Devices running CoAP IoT protocol service
 	CoAP *services.CoAP `json:"coap"`
+
+	// Availability: Devices running IPMI services
+	IPMI *services.IPMI `json:"ipmi"`
+
+	// Availability: Devices running RDP services
+	RDPEncryption *services.RDPEncryption `json:"rdp_encryption"`
+
+	// Availability: Devices running AMQP services
+	AMQP *services.AMQP `json:"amqp"`
+
+	VNC               *services.VNC               `json:"vnc"`
+	CiscoAnyConnect   *services.AnyConnect        `json:"cisco_anyconnect"`
+	Telnet            *services.Telnet            `json:"telnet"`
+	MySQL             *services.MySQL             `json:"mysql"`
+	MySQLX            *services.MySQLX            `json:"mysqlx"`
+	DAV               *services.DAV               `json:"dav"`
+	Hikivision        *services.Hikvision         `json:"hikvision"`
+	Stun              *services.Stun              `json:"stun"`
+	NTLM              *services.NTLM              `json:"ntlm"`
+	MikrotikWinbox    *services.MikrotikWinbox    `json:"mikrotik_winbox"`
+	MikrotikRouterOS  *services.MikrotikRouterOS  `json:"mikrotik_routeros"`
+	Checkpoint        *services.Checkpoint        `json:"checkpoint"`
+	QNAP              *services.QNAP              `json:"qnap"`
+	Dahua             *services.Dahua             `json:"dahua"`
+	DahuaDVRWeb       *services.DahuaDVRWeb       `json:"dahua_dvr_web"`
+	NodeExporter      *services.NodeExporter      `json:"node_exporter"`
+	EthereumRPC       *services.EthereumRPC       `json:"ethereum_rpc"`
+	EthereumP2P       *services.EthereumP2P       `json:"ethereum_p2p"`
+	Fortinet          *services.Fortinet          `json:"fortinet"`
+	SynologyDSM       *services.SynologyDSM       `json:"synology_dsm"`
+	SynologySRM       *services.SynologySRM       `json:"synology_srm"`
+	PPTP              *services.PPTP              `json:"pptp"`
+	BGP               *services.BGP               `json:"bgp"`
+	Plex              *services.Plex              `json:"plex"`
+	TilginHomeGateway *services.TilginHomeGateway `json:"tilginAB_home_gateway"`
+	MDNS              *services.MDNS              `json:"mdns"`
+	IPPCups           *services.IPPCups           `json:"ipp_cups"`
+	DockerRegistry    *services.DockerRegistry    `json:"docker_registry"`
+	MicrosoftExchange *services.MicrosoftExchange `json:"microsoft_exchange"`
+	LDAP              *services.LDAP              `json:"ldap"`
+	UPNP              *services.UPNP              `json:"upnp"`
+	AFP               *services.AFP               `json:"afp"`
+	Airplay           *services.Airplay           `json:"airplay"`
+	ClickHouse        *services.ClickHouse        `json:"clickhouse"`
+	Consul            *services.Consul            `json:"consul"`
+	MSRPC             *services.MSRPC             `json:"msrpc"`
+	BACnet            *services.BACnet            `json:"bacnet"`
+	CouchDB           *services.CouchDB           `json:"couchdb"`
+	DraytekVigor      *services.DraytekVigor      `json:"draytek_vigor"`
+	EPMD              *services.EPMD              `json:"epmd"`
+	HPiLO             *services.HPiLO             `json:"hp_ilo"`
 }
 
 // region public methods
@@ -184,6 +278,8 @@ func (s *Service) ProductString() string {
 
 // CPE can be a string or list of strings.
 func (s *Service) CpeList() []string {
+	// TODO: Also parse CPE23
+
 	if s.CPE == nil {
 		return []string{}
 	}

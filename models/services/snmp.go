@@ -20,4 +20,12 @@ type SNMP struct {
 	OrDescr      string `json:"ordescr"`
 	OrUptime     string `json:"oruptime"`
 	OrId         string `json:"orid"`
+
+	Service        string `json:"service,omitempty"`
+	Versions       []int  `json:"versions,omitempty"`
+	EngineIDFormat string `json:"engineid_format,omitempty"`
+	EngineBoots    int    `json:"engine_boots,omitempty"`
+	EngineIDData   string `json:"engineid_data,omitempty"`
+	Enterprise     int    `json:"enterprise,omitempty"`
+	EngineTime     string `json:"engine_time,omitempty"`
 }

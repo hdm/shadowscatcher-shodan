@@ -82,3 +82,7 @@ type DockerContainerHostConfig struct {
 type DockerPlatform struct {
 	Name string `json:"Name"`
 }
+
+type DockerRegistry struct {
+	Repositories []string `json:"repositories"`
+}
