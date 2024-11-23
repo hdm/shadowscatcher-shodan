@@ -38,7 +38,6 @@ type MongoBuildInfo struct {
 			Hash  string `json:"hash,omitempty"`
 		} `json:"signature,omitempty"`
 	} `json:"$clusterTime,omitempty"`
-	CPPDefines        string       `json:"cppdefines,omitempty"`
 	Debug             bool         `json:"debug,omitempty"`
 	GitVersion        string       `json:"gitVersion"`
 	JavascriptEngine  string       `json:"javascriptEngine,omitempty"`
@@ -69,6 +68,7 @@ type MongoBuildEnvironment struct {
 	Ccflags    string `json:"ccflags,omitempty"`
 	Cxx        string `json:"cxx,omitempty"`
 	Cxxflags   string `json:"cxxflags,omitempty"`
+	CPPDefines string `json:"cppdefines,omitempty"`
 	Distarch   string `json:"distarch,omitempty"`
 	Distmod    string `json:"distmod,omitempty"`
 	Linkflags  string `json:"linkflags,omitempty"`

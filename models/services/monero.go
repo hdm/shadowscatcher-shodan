@@ -71,6 +71,8 @@ type Monero struct {
 	WhitePeerlistSize        int    `json:"white_peerlist_size"`
 	WideCumulativeDifficulty string `json:"wide_cumulative_difficulty,omitempty"`
 	WideDifficulty           string `json:"wide_difficulty,omitempty"`
+
+	BusySyncing bool `json:"busy_syncing,omitempty"`
 }
 
 type MoneroConnection struct {

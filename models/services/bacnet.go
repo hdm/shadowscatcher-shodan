@@ -10,4 +10,5 @@ type BACnet struct {
 	Fdt        []any  `json:"fdt,omitempty"`
 	Model      string `json:"model,omitempty"`
 	Desc       string `json:"desc,omitempty"`
+	AppSoft    string `json:"appsoft,omitempty"`
 }

@@ -22,5 +22,6 @@ type AFP struct {
 		SuperClient              bool   `json:"super_client,omitempty"`
 		TCPIP                    bool   `json:"tcp_ip,omitempty"`
 	} `json:"server_flags,omitempty"`
-	AfpVersions []string `json:"afp_versions,omitempty"`
+	AfpVersions    []string `json:"afp_versions,omitempty"`
+	DirectoryNames []string `json:"directory_names,omitempty"`
 }

@@ -20,6 +20,7 @@ type SNMP struct {
 	OrDescr      string `json:"ordescr"`
 	OrUptime     string `json:"oruptime"`
 	OrId         string `json:"orid"`
+	OrIndex      string `json:"orindex"`
 
 	Service        string `json:"service,omitempty"`
 	Versions       []int  `json:"versions,omitempty"`

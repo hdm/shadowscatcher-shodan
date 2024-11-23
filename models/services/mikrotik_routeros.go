@@ -1,5 +1,6 @@
 package services
 
 type MikrotikRouterOS struct {
-	Version string `json:"version"`
+	Interfaces []string `json:"interfaces,omitempty"`
+	Version    string   `json:"version"`
 }

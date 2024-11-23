@@ -7,6 +7,7 @@ type EthereumRPC struct {
 	Accounts []string `json:"accounts,omitempty"`
 	Hashrate string   `json:"hashrate,omitempty"`
 	Compiler string   `json:"compiler,omitempty"`
+	Platform string   `json:"platform,omitempty"`
 }
 
 type EthereumP2P struct {

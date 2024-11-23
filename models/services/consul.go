@@ -8,4 +8,5 @@ type Consul struct {
 	Server            bool   `json:"Server,omitempty"`
 	Version           string `json:"Version,omitempty"`
 	Revision          string `json:"Revision,omitempty"`
+	BuildDate         string `json:"BuildDate,omitempty"`
 }

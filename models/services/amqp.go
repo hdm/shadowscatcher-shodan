@@ -20,9 +20,10 @@ type AMQP struct {
 		Platform    string `json:"platform"`
 		Version     string `json:"version"`
 	} `json:"server_properties"`
-	VersionMinor    int    `json:"version_minor"`
-	Mechanisms      string `json:"mechanisms"`
-	Locales         string `json:"locales"`
-	VersionMajor    int    `json:"version_major"`
-	ProtocolVersion string `json:"protocol_version"`
+	VersionMinor    int      `json:"version_minor"`
+	Mechanisms      string   `json:"mechanisms"`
+	Locales         string   `json:"locales"`
+	VersionMajor    int      `json:"version_major"`
+	ProtocolVersion string   `json:"protocol_version"`
+	SaslMechanisms  []string `json:"sasl_mechanisms,omitempty"`
 }

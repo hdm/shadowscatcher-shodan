@@ -131,7 +131,7 @@ type Service struct {
 	Cassandra *services.Cassandra `json:"cassandra,omitempty"`
 
 	// Availability: Services running the IBM DB2 DRDA protocol
-	DB2 *services.DB2 `json:"db2,omitempty"`
+	DB2 *services.DB2 `json:"ibm_db2,omitempty"`
 
 	// Availability: DNS servers that support either UDP or TCP (typically on port 53)
 	DNS *services.DNS `json:"dns,omitempty"`
@@ -264,6 +264,18 @@ type Service struct {
 	DraytekVigor      *services.DraytekVigor      `json:"draytek_vigor"`
 	EPMD              *services.EPMD              `json:"epmd"`
 	HPiLO             *services.HPiLO             `json:"hp_ilo"`
+	HPPrinterWeb      *services.HPPrinterWeb      `json:"hp_printer_embedded_web_server"`
+	HueBridge         *services.HueBridge         `json:"philips_hue"`
+	RealPort          *services.RealPort          `json:"realport"`
+	ADB               *services.ADB               `json:"android_debug_bridge"`
+	GLiNET            *services.GLiNET            `json:"gl_inet"`
+	HomeAssistant     *services.HomeAssistant     `json:"home_assistant"`
+	InfluxDB          *services.InfluxDb          `json:"influxdb"`
+	Bitcoin           *services.Bitcoin           `json:"bitcoin"`
+	Chromecast        *services.Chromecast        `json:"chromecast"`
+	Domoticz          *services.Domoticz          `json:"domoticz"`
+	IPCamera          *services.IPCamera          `json:"ip_camera"`
+	ISCSI             *services.ISCSI             `json:"iscsi"`
 }
 
 // region public methods

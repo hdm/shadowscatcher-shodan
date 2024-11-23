@@ -10,4 +10,7 @@ type Airplay struct {
 	FirmwareBuildDate string `json:"firmware_build_date,omitempty"`
 	Sdk               string `json:"sdk,omitempty"`
 	DeviceID          string `json:"device_id,omitempty"`
+	OSBuildVersion    string `json:"os_build_version,omitempty"`
+	VodkaVersion      int    `json:"vodka_version,omitempty"`
+	MACAddress        string `json:"mac_address,omitempty"`
 }

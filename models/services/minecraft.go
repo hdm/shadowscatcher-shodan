@@ -12,6 +12,8 @@ type Minecraft struct {
 	Favicon           string          `json:"favicon,omitempty"`
 	Whitelisted       bool            `json:"whitelisted,omitempty"`
 	EnforceSecureChat bool            `json:"enforcesSecureChat,omitempty"`
+	PreviewsChat      bool            `json:"previewsChat,omitempty"`
+	Map               string          `json:"map,omitempty"`
 }
 
 type MinecraftServerVersion struct {

@@ -87,21 +87,23 @@ type SslCert struct {
 }
 
 type SslCertComponents struct {
-	C                string `json:"C,omitempty"`
-	CN               string `json:"CN,omitempty"`
-	DC               string `json:"DC,omitempty"`
-	L                string `json:"L,omitempty"`
-	O                string `json:"O,omitempty"`
-	OU               string `json:"OU,omitempty"`
-	SN               string `json:"SN,omitempty"`
-	ST               string `json:"ST,omitempty"`
-	EmailAddress     string `json:"emailAddress,omitempty"`
-	SerialNumber     string `json:"serialNumber,omitempty"`
-	UnstructuredName string `json:"unstructuredName,omitempty"`
-	BusinessCategory string `json:"businessCategory,omitempty"`
-	DNQualifier      string `json:"dnQualifier,omitempty"`
-	UNDEF            string `json:"UNDEF,omitempty"`
-	Name             string `json:"name,omitempty"`
+	C                      string `json:"C,omitempty"`
+	CN                     string `json:"CN,omitempty"`
+	DC                     string `json:"DC,omitempty"`
+	L                      string `json:"L,omitempty"`
+	O                      string `json:"O,omitempty"`
+	OU                     string `json:"OU,omitempty"`
+	SN                     string `json:"SN,omitempty"`
+	ST                     string `json:"ST,omitempty"`
+	EmailAddress           string `json:"emailAddress,omitempty"`
+	SerialNumber           string `json:"serialNumber,omitempty"`
+	UnstructuredName       string `json:"unstructuredName,omitempty"`
+	BusinessCategory       string `json:"businessCategory,omitempty"`
+	DNQualifier            string `json:"dnQualifier,omitempty"`
+	UNDEF                  string `json:"UNDEF,omitempty"`
+	Name                   string `json:"name,omitempty"`
+	Initials               string `json:"initials,omitempty"`
+	OrganizationIdentifier string `json:"organizationIdentifier,omitempty"`
 }
 
 type SslCipher struct {

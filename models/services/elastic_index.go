@@ -8,6 +8,13 @@ type ElasticIndex struct {
 
 type ElasticIndexStats struct {
 	Indexing ElasticIndexing `json:"indexing,omitempty"`
+	Store    struct {
+		SizeInBytes int `json:"size_in_bytes,omitempty"`
+	} `json:"store,omitempty"`
+	Docs struct {
+		Count   int `json:"count,omitempty"`
+		Deleted int `json:"deleted,omitempty"`
+	} `json:"docs,omitempty"`
 }
 
 type ElasticIndexing struct {

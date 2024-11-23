@@ -37,9 +37,12 @@ type NodeExporter struct {
 		BiosRelease     string `json:"bios_release,omitempty"`
 		ChassisVendor   string `json:"chassis_vendor,omitempty"`
 		ChassisAssetTag string `json:"chassis_asset_tag,omitempty"`
+		ChassisVersion  string `json:"chassis_version,omitempty"`
+		ChassisSerial   string `json:"chassis_serial,omitempty"`
 		ProductUUID     string `json:"product_uuid,omitempty"`
 		ProductSerial   string `json:"product_serial,omitempty"`
-		ChassisVersion  string `json:"chassis_version,omitempty"`
+		ProductFamily   string `json:"product_family,omitempty"`
+		ProductSKU      string `json:"product_sku,omitempty"`
 		BoardAssetTag   string `json:"board_asset_tag,omitempty"`
 		BoardName       string `json:"board_name,omitempty"`
 		BoardVendor     string `json:"board_vendor,omitempty"`
